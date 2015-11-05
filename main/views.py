@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import CsvLoyalty2
+from .models import CsvLoyalty
 from .forms import Upload_Form
 # Create your views here.
 
@@ -14,10 +15,8 @@ def uploadtest(request):
             for chunk in uploaded_file.chunks():
                 fout.write(chunk)
             fout.close()
-            # CsvLoyalty2.import_data(data=open(filename))
-            CsvLoyalty2.import_from_file(open(filename))
-            # CsvLoyalty2.import_data(data=open(uploaded_file2))
-            # CsvLoyalty2.import_data(data=open(uploaded_file2))
+            # CsvLoyalty2.import_from_file(open(filename))
+            CsvLoyalty.import_data(data=open(filename))
     else:
         form = Upload_Form()
     return render(request , 'main/upload_test.html', {'form': form})
