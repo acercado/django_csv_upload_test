@@ -41,7 +41,7 @@ class Loyaltycodes2(models.Model):
     volume = models.CharField(choices=VOLUME_TYPES, default='700mL', max_length=10)
     loyalty_point = loyalty_point = models.IntegerField(default=0)
     tag_account = models.ForeignKey(Account,null=True,blank=True)
-    # premise = models.CharField(choices=PREMISE_TYPES, default='On-Premise', max_length=20)
+    premise = models.CharField(choices=PREMISE_TYPES, default='On-Premise', max_length=20)
     # code_validity_start = models.DateField(null=True, blank=True)
     # code_validity_end = models.DateField(null=True, blank=True)
     # status = models.CharField(max_length=20)
@@ -66,12 +66,13 @@ class CsvLoyalty2(CsvModel):
     volume = CharField()
     loyalty_point = IntegerField()
     tag_account = DjangoModelField(Account)
-    # premise = CharField()
+    premise = CharField()
     # code_validity_start = CharField()
     # code_validity_end = CharField()
     # status = CharField()
     # author = CharField()
 
     class Meta:
+        has_header = True
         delimiter = ";"
         dbModel = Loyaltycodes2
