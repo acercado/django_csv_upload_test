@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'csv_upload',
         'USER': 'acercado',
         'PASSWORD': 'Hxofruv92qoF',
-        'TIME_ZONE': 'Asia/Manila'
+        'TIME_ZONE': 'UTC'
     }
 }
 
