@@ -1,0 +1,12 @@
+{% extends "main/base.html" %}
+{% block content %}
+  <form action="" method="post" enctype="multipart/form-data">
+  	{% csrf_token %}
+  	<div>
+  	  <label for="{{ form.filespec.id_for_label }}">CSV File</label>
+      {{ form.filespec }}
+      {{ form.filespec.errors}}
+      <button class="" type="submit">SAVE</button>
+  	</div>
+  </form>
+{% endblock content %}
